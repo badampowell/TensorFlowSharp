@@ -108,20 +108,21 @@ namespace TensorFlow
 		}
 	}
 
-	/// <summary>
-	/// Base class for many TensorFlow data types that provides a common idiom to dispose and
-	/// release resources associated with the native data types.   Generally, you do not need to use this.
-	/// </summary>
-	/// <remarks>
-	/// <para>
-	/// This implements the Dispose pattern in a reusable form for TensorFlow types.
-	/// </para>
-	/// <para>
-	/// Subclasses invoke the constructor with the handle that this will wrap, and must
-	/// override the NativeDispose method (internal) to release the associated resource.
-	/// </para>
-	/// </remarks>
-	public abstract class TFDisposable : IDisposable
+    /// <summary>
+    /// Base class for many TensorFlow data types that provides a common idiom to dispose and
+    /// release resources associated with the native data types.   Generally, you do not need to use this.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This implements the Dispose pattern in a reusable form for TensorFlow types.
+    /// </para>
+    /// <para>
+    /// Subclasses invoke the constructor with the handle that this will wrap, and must
+    /// override the NativeDispose method (internal) to release the associated resource.
+    /// </para>
+    /// </remarks>
+    [Serializable]
+    public abstract class TFDisposable : IDisposable
 	{
 		internal IntPtr handle;
 
@@ -464,6 +465,7 @@ namespace TensorFlow
 	/// "hot", and add a "sub" operation there the result will be "demo/hot/sub".
 	/// </para>
 	/// </remarks>
+	[Serializable]
 	public partial class TFGraph : TFDisposable
 	{
 		// extern TF_Graph * TF_NewGraph ();
@@ -1171,12 +1173,14 @@ namespace TensorFlow
 		}
 	}
 
-	/// <summary>
-	/// A grouping of operations with defined inputs and outputs.
-	/// Once created and added to graphs, functions can be invoked by creating an
-	/// operation whose operation type matches the function name.
-	/// </summary>
-	public class TFFunction : TFDisposable {
+    /// <summary>
+    /// A grouping of operations with defined inputs and outputs.
+    /// Once created and added to graphs, functions can be invoked by creating an
+    /// operation whose operation type matches the function name.
+    /// </summary>
+    /// 
+    [Serializable]
+    public class TFFunction : TFDisposable {
 		internal TFFunction (IntPtr handle) : base (handle)
 		{
 		}
