@@ -79,7 +79,8 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="TensorFlow.TFDisposable.html">TFDisposable</a></div>
-    <div class="level2"><span class="xref">TFSession</span></div>
+    <div class="level2"><a class="xref" href="TensorFlow.TFDisposableThreadSafe.html">TFDisposableThreadSafe</a></div>
+    <div class="level3"><span class="xref">TFSession</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -87,17 +88,17 @@
       <a class="xref" href="TensorFlow.TFDisposable.html#TensorFlow_TFDisposable_Dispose">TFDisposable.Dispose()</a>
     </div>
     <div>
-      <a class="xref" href="TensorFlow.TFDisposable.html#TensorFlow_TFDisposable_Dispose_System_Boolean_">TFDisposable.Dispose(Boolean)</a>
+      <a class="xref" href="TensorFlow.TFDisposable.html#TensorFlow_TFDisposable_Handle">TFDisposable.Handle</a>
     </div>
     <div>
-      <a class="xref" href="TensorFlow.TFDisposable.html#TensorFlow_TFDisposable_Handle">TFDisposable.Handle</a>
+      <a class="xref" href="TensorFlow.TFDisposableThreadSafe.html#TensorFlow_TFDisposableThreadSafe_Dispose_System_Boolean_">TFDisposableThreadSafe.Dispose(Boolean)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="../TensorFlow.html">TensorFlow</a></h6>
   <h6><strong>Assembly</strong>: TensorFlowSharp.dll</h6>
   <h5 id="TensorFlow_TFSession_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class TFSession : TensorFlow.TFDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class TFSession : TensorFlow.TFDisposableThreadSafe</code></pre>
   </div>
   <h5 id="TensorFlow_TFSession_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>
@@ -121,7 +122,8 @@
   
   <a id="TensorFlow_TFSession__ctor_" data-uid="TensorFlow.TFSession.#ctor*"></a>
   <h4 id="TensorFlow_TFSession__ctor_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.#ctor(TensorFlow.TFStatus)">TFSession(TFStatus)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new execution session with an empty graph</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -140,16 +142,20 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
         <td><span class="parametername">status</span></td>
-        <td><p>To be added.</p>
+        <td><p>Status buffer, if specified a status code will be left here, if not specified, a <a class="xref" href="TensorFlow.TFException.html">TFException</a> exception is raised if there is an error.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="TensorFlow_TFSession__ctor_TensorFlow_TFStatus__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The created graph can be retrieved using the Graph property on the session.</p>
+</div>
   
   
   <a id="TensorFlow_TFSession__ctor_" data-uid="TensorFlow.TFSession.#ctor*"></a>
   <h4 id="TensorFlow_TFSession__ctor_TensorFlow_TFGraph_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.#ctor(TensorFlow.TFGraph,TensorFlow.TFStatus)">TFSession(TFGraph, TFStatus)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new execution session associated with the specified session graph.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -168,13 +174,13 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFGraph.html">TFGraph</a></td>
         <td><span class="parametername">graph</span></td>
-        <td><p>To be added.</p>
+        <td><p>The Graph to which this session is associated.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
         <td><span class="parametername">status</span></td>
-        <td><p>To be added.</p>
+        <td><p>Status buffer, if specified a status code will be left here, if not specified, a <a class="xref" href="TensorFlow.TFException.html">TFException</a> exception is raised if there is an error.</p>
 </td>
       </tr>
     </tbody>
@@ -183,7 +189,8 @@
   
   <a id="TensorFlow_TFSession__ctor_" data-uid="TensorFlow.TFSession.#ctor*"></a>
   <h4 id="TensorFlow_TFSession__ctor_TensorFlow_TFGraph_TensorFlow_TFSessionOptions_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.#ctor(TensorFlow.TFGraph,TensorFlow.TFSessionOptions,TensorFlow.TFStatus)">TFSession(TFGraph, TFSessionOptions, TFStatus)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a new execution session associated with the specified session graph with some configuration options.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -202,19 +209,19 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFGraph.html">TFGraph</a></td>
         <td><span class="parametername">graph</span></td>
-        <td><p>To be added.</p>
+        <td><p>The Graph to which this session is associated.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFSessionOptions.html">TFSessionOptions</a></td>
         <td><span class="parametername">sessionOptions</span></td>
-        <td><p>To be added.</p>
+        <td><p>Session options.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
         <td><span class="parametername">status</span></td>
-        <td><p>To be added.</p>
+        <td><p>Status buffer, if specified a status code will be left here, if not specified, a <a class="xref" href="TensorFlow.TFException.html">TFException</a> exception is raised if there is an error.</p>
 </td>
       </tr>
     </tbody>
@@ -254,7 +261,8 @@
   
   <a id="TensorFlow_TFSession_CloseSession_" data-uid="TensorFlow.TFSession.CloseSession*"></a>
   <h4 id="TensorFlow_TFSession_CloseSession_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.CloseSession(TensorFlow.TFStatus)">CloseSession(TFStatus)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Closes the session.  Contacts any other processes associated with the session, if applicable.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -273,16 +281,20 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
         <td><span class="parametername">status</span></td>
-        <td><p>To be added.</p>
+        <td><p>Status buffer, if specified a status code will be left here, if not specified, a <a class="xref" href="TensorFlow.TFException.html">TFException</a> exception is raised if there is an error.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="TensorFlow_TFSession_CloseSession_TensorFlow_TFStatus__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Can not be called after calling DeleteSession.</p>
+</div>
   
   
   <a id="TensorFlow_TFSession_DeleteSession_" data-uid="TensorFlow.TFSession.DeleteSession*"></a>
   <h4 id="TensorFlow_TFSession_DeleteSession_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.DeleteSession(TensorFlow.TFStatus)">DeleteSession(TFStatus)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Deletes the session.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -301,7 +313,7 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
         <td><span class="parametername">status</span></td>
-        <td><p>To be added.</p>
+        <td><p>Status.</p>
 </td>
       </tr>
     </tbody>
@@ -310,7 +322,8 @@
   
   <a id="TensorFlow_TFSession_FromSavedModel_" data-uid="TensorFlow.TFSession.FromSavedModel*"></a>
   <h4 id="TensorFlow_TFSession_FromSavedModel_TensorFlow_TFSessionOptions_TensorFlow_TFBuffer_System_String_System_String___TensorFlow_TFGraph_TensorFlow_TFBuffer_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.FromSavedModel(TensorFlow.TFSessionOptions,TensorFlow.TFBuffer,System.String,System.String[],TensorFlow.TFGraph,TensorFlow.TFBuffer,TensorFlow.TFStatus)">FromSavedModel(TFSessionOptions, TFBuffer, String, String[], TFGraph, TFBuffer, TFStatus)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates a session and graph from a model stored in the SavedModel file format.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -329,43 +342,43 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFSessionOptions.html">TFSessionOptions</a></td>
         <td><span class="parametername">sessionOptions</span></td>
-        <td><p>To be added.</p>
+        <td><p>Session options to use for the new session.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFBuffer.html">TFBuffer</a></td>
         <td><span class="parametername">runOptions</span></td>
-        <td><p>To be added.</p>
+        <td><p>Options to use to initialize the state (can be null).</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">exportDir</span></td>
-        <td><p>To be added.</p>
+        <td><p>must be set to the path of the exported SavedModel.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.String</span>[]</td>
         <td><span class="parametername">tags</span></td>
-        <td><p>To be added.</p>
+        <td><p>must include the set of tags used to identify one MetaGraphDef in the SavedModel.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFGraph.html">TFGraph</a></td>
         <td><span class="parametername">graph</span></td>
-        <td><p>To be added.</p>
+        <td><p>This must be a newly created graph.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFBuffer.html">TFBuffer</a></td>
         <td><span class="parametername">metaGraphDef</span></td>
-        <td><p>To be added.</p>
+        <td><p>On success, this will be populated on return with the contents of the MetaGraphDef (can be null).</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
         <td><span class="parametername">status</span></td>
-        <td><p>To be added.</p>
+        <td><p>Status buffer, if specified a status code will be left here, if not specified, a <a class="xref" href="TensorFlow.TFException.html">TFException</a> exception is raised if there is an error.</p>
 </td>
       </tr>
     </tbody>
@@ -381,11 +394,20 @@
     <tbody>
       <tr>
         <td><a class="xref" href="TensorFlow.TFSession.html">TFSession</a></td>
-        <td><p>To be added.</p>
+        <td><p>On success, this populates the provided <code>graph</code> with the contents of the graph stored in the specified model and <code>metaGraphDef</code> with the MetaGraphDef of the loaded model.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="TensorFlow_TFSession_FromSavedModel_TensorFlow_TFSessionOptions_TensorFlow_TFBuffer_System_String_System_String___TensorFlow_TFGraph_TensorFlow_TFBuffer_TensorFlow_TFStatus__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+            This function creates a new session using the specified <code>sessionOptions</code> and then initializes
+            the state (restoring tensors and other assets) using <code>runOptions</code>.
+            </p>
+    <p>
+            This function loads the data that was saved using the SavedModel file format, as described
+            here: <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md">https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md</a>
+            </p></div>
   
   
   <a id="TensorFlow_TFSession_GetRunner_" data-uid="TensorFlow.TFSession.GetRunner*"></a>
@@ -418,6 +440,51 @@
             to construct the parameters that will be passed to the TFSession.Run method.</p>
 <pre><code>        The Run method will return an array of TFTensor values, one for each invocation to the Fetch method.
 </code></pre></div>
+  
+  
+  <a id="TensorFlow_TFSession_ListDevices_" data-uid="TensorFlow.TFSession.ListDevices*"></a>
+  <h4 id="TensorFlow_TFSession_ListDevices_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.ListDevices(TensorFlow.TFStatus)">ListDevices(TFStatus)</h4>
+  <div class="markdown level1 summary"><p>Lists available devices in this session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public System.Collections.Generic.IEnumerable&lt;TensorFlow.DeviceAttributes&gt; ListDevices (TensorFlow.TFStatus status = null);</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TensorFlow.TFStatus.html">TFStatus</a></td>
+        <td><span class="parametername">status</span></td>
+        <td><p>Status buffer, if specified a status code will be left here, if not specified, a <a class="xref" href="TensorFlow.TFException.html">TFException</a> exception is raised if there is an error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="TensorFlow.DeviceAttributes.html">DeviceAttributes</a>&gt;</td>
+        <td><p>To be added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="TensorFlow_TFSession_PartialRun_" data-uid="TensorFlow.TFSession.PartialRun*"></a>
@@ -557,6 +624,63 @@
   </table>
   
   
+  <a id="TensorFlow_TFSession_RestoreTensor_" data-uid="TensorFlow.TFSession.RestoreTensor*"></a>
+  <h4 id="TensorFlow_TFSession_RestoreTensor_System_String_System_String_TensorFlow_TFDataType_" data-uid="TensorFlow.TFSession.RestoreTensor(System.String,System.String,TensorFlow.TFDataType)">RestoreTensor(String, String, TFDataType)</h4>
+  <div class="markdown level1 summary"><p>Restores a tensor from a serialized tensorflor file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TensorFlow.TFOutput RestoreTensor (string filename, string tensor, TensorFlow.TFDataType type);</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filename</span></td>
+        <td><p>File containing your saved tensors.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tensor</span></td>
+        <td><p>The name that was used to save the tensor.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="TensorFlow.TFDataType.html">TFDataType</a></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>The data type for the tensor.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TensorFlow.TFOutput.html">TFOutput</a></td>
+        <td><p>The deserialized tensor from the file.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="TensorFlow_TFSession_Run_" data-uid="TensorFlow.TFSession.Run*"></a>
   <h4 id="TensorFlow_TFSession_Run_TensorFlow_TFOutput___TensorFlow_TFTensor___TensorFlow_TFOutput___TensorFlow_TFOperation___TensorFlow_TFBuffer_TensorFlow_TFBuffer_TensorFlow_TFStatus_" data-uid="TensorFlow.TFSession.Run(TensorFlow.TFOutput[],TensorFlow.TFTensor[],TensorFlow.TFOutput[],TensorFlow.TFOperation[],TensorFlow.TFBuffer,TensorFlow.TFBuffer,TensorFlow.TFStatus)">Run(TFOutput[], TFTensor[], TFOutput[], TFOperation[], TFBuffer, TFBuffer, TFStatus)</h4>
   <div class="markdown level1 summary"><p>Executes a pipeline given the specified inputs, inputValues, outputs, targetOpers, runMetadata and runOptions.<br>            A simpler API is available by calling the <span class="xref">GetRunner</span> method which performs all the bookkeeping
@@ -604,13 +728,13 @@
       <tr>
         <td><a class="xref" href="TensorFlow.TFBuffer.html">TFBuffer</a></td>
         <td><span class="parametername">runMetadata</span></td>
-        <td><p>Run metadata.</p>
+        <td><p>Run metadata, a buffer containing the protocol buffer encoded value for <a href="https://github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto">https://github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto</a>.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="TensorFlow.TFBuffer.html">TFBuffer</a></td>
         <td><span class="parametername">runOptions</span></td>
-        <td><p>Run options.</p>
+        <td><p>Run options, a buffer containing the protocol buffer encoded value for <a href="https://github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto">https://github.com/tensorflow/tensorflow/blob/r1.9/tensorflow/core/protobuf/config.proto</a>.</p>
 </td>
       </tr>
       <tr>
@@ -637,6 +761,72 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="TensorFlow_TFSession_SaveTensors_" data-uid="TensorFlow.TFSession.SaveTensors*"></a>
+  <h4 id="TensorFlow_TFSession_SaveTensors_System_String_System_ValueTuple_System_String_TensorFlow_TFOutput____" data-uid="TensorFlow.TFSession.SaveTensors(System.String,System.ValueTuple{System.String,TensorFlow.TFOutput}[])">SaveTensors(String, ValueTuple&lt;String,TFOutput&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Saves the tensors in the session to a file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TensorFlow.TFTensor[] SaveTensors (string filename, ValueTuple&lt;string,TensorFlow.TFOutput&gt;[] tensors);</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filename</span></td>
+        <td><p>File to store the tensors in (for example: tensors.tsf).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.String</span>,<a class="xref" href="TensorFlow.TFOutput.html">TFOutput</a>&gt;[]</td>
+        <td><span class="parametername">tensors</span></td>
+        <td><p>An array of tuples that include the name you want to give the tensor on output, and the tensor you want to save.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="TensorFlow.TFTensor.html">TFTensor</a>[]</td>
+        <td><p>The tensors.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="TensorFlow_TFSession_SaveTensors_System_String_System_ValueTuple_System_String_TensorFlow_TFOutput_____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><p>
+            Tensors saved with this method can be loaded by calling <span class="xref">RestoreTensor</span>.
+            </p>
+    <pre><code>
+            using (var session = new TFSession ()) {
+              var a = session.Graph.Const(30, "a");
+              var b = session.Graph.Const(12, "b");
+              var multiplyResults = session.GetRunner().Run(session.Graph.Add(a, b));
+              var multiplyResultValue = multiplyResults.GetValue();
+              Console.WriteLine("a*b={0}", multiplyResultValue);
+              session.SaveTensors($"saved.tsf", ("a", a), ("b", b));
+            }
+            </code></pre></p>
+</div>
 </article>
           </div>
           
