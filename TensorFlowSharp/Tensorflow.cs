@@ -457,11 +457,11 @@ namespace TensorFlow
 	{
 		// extern size_t TF_StringEncode (const char *src, size_t src_len, char *dst, size_t dst_len, TF_Status *status);
 		[DllImport (NativeBinding.TensorFlowLibrary)]
-		internal static extern unsafe size_t TF_StringEncode (byte* src, size_t src_len, sbyte* dst, size_t dst_len, TF_Status status);
+		internal static extern unsafe size_t TF_StringEncode (byte* src, size_t src_len, byte* dst, size_t dst_len, TF_Status status);
 		
 		// extern size_t TF_StringDecode (const char *src, size_t src_len, const char **dst, size_t *dst_len, TF_Status *status);
 		[DllImport (NativeBinding.TensorFlowLibrary)]
-		internal static extern unsafe size_t TF_StringDecode (sbyte* src, size_t src_len, sbyte** dst, size_t* dst_len, TF_Status status);
+		internal static extern unsafe size_t TF_StringDecode (byte* src, size_t src_len, byte** dst, size_t* dst_len, TF_Status status);
 
 		// extern size_t TF_StringEncodedSize (size_t len);
 		[DllImport (NativeBinding.TensorFlowLibrary)]
@@ -2729,7 +2729,7 @@ namespace TensorFlow
 		/// here: https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md
 		/// </para>
 		/// </remarks>
-		public TFSession FromSavedModel (TFSessionOptions sessionOptions, TFBuffer runOptions, string exportDir, string [] tags, TFGraph graph, TFBuffer metaGraphDef, TFStatus status = null)
+		public static TFSession FromSavedModel (TFSessionOptions sessionOptions, TFBuffer runOptions, string exportDir, string [] tags, TFGraph graph, TFBuffer metaGraphDef, TFStatus status = null)
 		{
 			if (graph == null)
 				throw new ArgumentNullException (nameof (graph));
